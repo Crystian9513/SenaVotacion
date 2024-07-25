@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cf27ccc8-b7b5-4bb7-8ef9-fb727e6a1d19">
+	<property name="ireport.zoom" value="1.210000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="8675732b-5de6-4c82-9f78-e566552779fe">
+		<queryString language="SQL">
+			<![CDATA[SELECT 
+    votante.AGENDA_FK AS votante_AGENDA_FK,
+    votante.FORMACION_FK AS votante_FORMACION_FK,
+    votante.ID_VOTANTE AS votante_ID_VOTANTE,
+    votante.NOMBRES_COMPLETO AS votante_NOMBRES_COMPLETO,
+    votante.SEDE_FK AS votante_SEDE_FK,
+    usuario.estado AS usuario_estado
+FROM 
+    agenda_votacion agenda 
+INNER JOIN 
+    votante votante ON agenda.ID_AGENDA = votante.AGENDA_FK
+INNER JOIN 
+    usuario usuario ON votante.ID_VOTANTE = usuario.codigo
+WHERE 
+    votante.AGENDA_FK ;]]>
+		</queryString>
+		<field name="votante_AGENDA_FK" class="java.lang.Integer"/>
+		<field name="votante_FORMACION_FK" class="java.lang.Integer"/>
+		<field name="votante_ID_VOTANTE" class="java.lang.Integer"/>
+		<field name="votante_NOMBRES_COMPLETO" class="java.lang.String"/>
+		<field name="votante_SEDE_FK" class="java.lang.Integer"/>
+		<field name="usuario_estado" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="2" uuid="0c57a9e4-86f0-4ffe-8abe-b322b499e6d7">
+		<queryString language="SQL">
+			<![CDATA[SELECT 
+    votante.AGENDA_FK AS votante_AGENDA_FK,
+    votante.FORMACION_FK AS votante_FORMACION_FK,
+    votante.ID_VOTANTE AS votante_ID_VOTANTE,
+    votante.NOMBRES_COMPLETO AS votante_NOMBRES_COMPLETO,
+    votante.SEDE_FK AS votante_SEDE_FK,
+    usuario.estado AS usuario_estado
+FROM 
+    agenda_votacion agenda 
+INNER JOIN 
+    votante votante ON agenda.ID_AGENDA = votante.AGENDA_FK
+INNER JOIN 
+    usuario usuario ON votante.ID_VOTANTE = usuario.codigo
+WHERE 
+    votante.AGENDA_FK ;]]>
+		</queryString>
+		<field name="votante_AGENDA_FK" class="java.lang.Integer"/>
+		<field name="votante_FORMACION_FK" class="java.lang.Integer"/>
+		<field name="votante_ID_VOTANTE" class="java.lang.Integer"/>
+		<field name="votante_NOMBRES_COMPLETO" class="java.lang.String"/>
+		<field name="votante_SEDE_FK" class="java.lang.Integer"/>
+		<field name="usuario_estado" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+    votante.AGENDA_FK AS votante_AGENDA_FK,
+    votante.FORMACION_FK AS votante_FORMACION_FK,
+    votante.ID_VOTANTE AS votante_ID_VOTANTE,
+    votante.NOMBRES_COMPLETO AS votante_NOMBRES_COMPLETO,
+    votante.SEDE_FK AS votante_SEDE_FK,
+    usuario.estado AS usuario_estado
+FROM 
+    agenda_votacion agenda 
+INNER JOIN 
+    votante votante ON agenda.ID_AGENDA = votante.AGENDA_FK
+INNER JOIN 
+    usuario usuario ON votante.ID_VOTANTE = usuario.codigo
+WHERE 
+    votante.AGENDA_FK = $P{id}]]>
+	</queryString>
+	<field name="votante_AGENDA_FK" class="java.lang.Integer"/>
+	<field name="votante_FORMACION_FK" class="java.lang.Integer"/>
+	<field name="votante_ID_VOTANTE" class="java.lang.Integer"/>
+	<field name="votante_NOMBRES_COMPLETO" class="java.lang.String"/>
+	<field name="votante_SEDE_FK" class="java.lang.Integer"/>
+	<field name="usuario_estado" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="147" y="34" width="289" height="41" uuid="ba574b1b-e774-4e69-9d6a-ad28cd215ca7"/>
+				<textElement textAlignment="Center">
+					<font size="28" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Votantes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="58" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="0" width="23" height="20" uuid="57eeb02b-b04a-4ada-8bec-83f51ccb44bd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="0" width="57" height="20" uuid="7b0304af-d73b-42cb-8291-d6e708f25555"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO fORMACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="0" width="92" height="20" uuid="3aa976b7-e483-4724-a878-fb28146a3b0d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="249" height="20" uuid="25148093-6e5c-4719-8c4d-3f53f2580744"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE COMPLETO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="0" width="72" height="20" uuid="43a00647-d7c5-4d27-a87b-bed6f26aa56a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VOTO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="210" y="0" width="239" height="20" uuid="da88c068-ea9f-4b98-881f-dccbbe7c632e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{votante_NOMBRES_COMPLETO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="0" width="73" height="20" uuid="ebdf4ed2-f8e7-4ab2-9082-0d43bf9d0f9f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{usuario_estado}== 1 ? "Si" : "No"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="0" width="22" height="20" uuid="550f0ef3-090a-4dff-978d-586bddea8eb0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{votante_AGENDA_FK}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="90" height="20" uuid="ccf6b337-bc0c-4ab2-963f-10eacedf3202"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{votante_ID_VOTANTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="0" width="55" height="20" uuid="b4ade003-70f5-4d23-839d-3203963839c8"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{votante_FORMACION_FK}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="26" y="0" width="1" height="21" uuid="bc627654-e799-4a6d-8dfb-9be2896c9f04"/>
+			</line>
+			<line>
+				<reportElement x="107" y="0" width="1" height="21" uuid="581656b5-b1aa-4dfa-9a69-12f279136801"/>
+			</line>
+			<line>
+				<reportElement x="49" y="0" width="1" height="21" uuid="dcc2e33e-3998-41cb-a2bc-0db8667d8a92"/>
+			</line>
+			<line>
+				<reportElement x="199" y="0" width="1" height="21" uuid="ccaeb8d8-1677-40e8-92d3-d4ccce789f55"/>
+			</line>
+			<line>
+				<reportElement x="448" y="0" width="1" height="21" uuid="f90f5494-ca30-423f-b808-03e1858fc5ff"/>
+			</line>
+			<line>
+				<reportElement x="26" y="0" width="495" height="1" uuid="e283aace-ef34-497b-9f04-b2ece5b4a4aa"/>
+			</line>
+			<line>
+				<reportElement x="521" y="0" width="1" height="21" uuid="ed1a4727-df33-42bc-b1f8-b4dad6b87464"/>
+			</line>
+			<line>
+				<reportElement x="26" y="21" width="496" height="1" uuid="7d5b5d82-96ef-4600-b6aa-2a650760e029"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="459" y="22" width="40" height="20" uuid="9d7d1337-6405-4821-9c7b-317e45462cd2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="22" width="80" height="20" uuid="5fb9797a-68e3-4038-9f7f-8006a7f9a75d"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina: "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="110" y="22" width="100" height="20" uuid="edeaae71-2051-4d92-950e-001c1eb9efdb"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="53" y="22" width="73" height="20" uuid="91314d8d-3bb3-49e1-88c4-2661c65fac8e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Generado: ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
